@@ -24,11 +24,11 @@ fun ScreenHome(wvm : WeatherViewModel, navController : NavHostController)
 
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally)
     {
-        Surface(modifier = Modifier.weight(1f).fillMaxWidth(), color = Color.Blue)
+        Surface(modifier = Modifier.weight(1f).fillMaxWidth(), color = Color.LightGray)
         {
             WeatherItem(featuredInfo!!)
         }
-        Surface(modifier = Modifier.weight(3f).fillMaxWidth(), color = Color.Green)
+        Surface(modifier = Modifier.weight(3f).fillMaxWidth(), color = Color.LightGray)
         {
             LazyColumn(){
                 item {

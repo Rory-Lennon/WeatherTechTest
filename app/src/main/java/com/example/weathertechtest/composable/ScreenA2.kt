@@ -23,7 +23,7 @@ fun ScreenA2(wvm : WeatherViewModel, navController : NavHostController) {
     val list = wvm.weatherListResponse
     if(list.size <= 0) return
 
-    Surface(modifier = Modifier.fillMaxSize(), color = Color.Green)
+    Surface(modifier = Modifier.fillMaxSize(), color = Color.White)
     {
         LazyColumn() {
             item {

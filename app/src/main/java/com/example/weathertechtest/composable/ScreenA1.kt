@@ -11,7 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
+import com.example.weathertechtest.MainActivity
 import com.example.weathertechtest.NavDestinations
 import com.example.weathertechtest.WeatherViewModel
 
@@ -19,12 +21,13 @@ import com.example.weathertechtest.WeatherViewModel
 
 @Composable
 fun ScreenA1(wvm : WeatherViewModel, navController : NavHostController) {
+
     val list = wvm.weatherListResponse
     if(list.size <= 0) return
 
     Card(modifier = Modifier.padding(8.dp, 4.dp).wrapContentSize(),
         shape = RoundedCornerShape(8.dp),
-        backgroundColor = Color.Cyan,
+        backgroundColor = Color.White,
         elevation = 4.dp) {
 
         Column(modifier = Modifier.padding(8.dp))

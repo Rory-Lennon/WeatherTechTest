@@ -24,7 +24,7 @@ fun ScreenC1(wvm : WeatherViewModel, navController : NavHostController) {
 
     Card(modifier = Modifier.padding(8.dp, 4.dp).wrapContentSize(),
         shape = RoundedCornerShape(8.dp),
-        backgroundColor = Color.Yellow,
+        backgroundColor = Color.White,
         elevation = 4.dp) {
 
         Column(modifier = Modifier.padding(8.dp))

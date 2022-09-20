@@ -5,6 +5,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Resources
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.AttributeSet
 import android.util.Log
@@ -30,6 +32,8 @@ class MainActivity : ComponentActivity() {
     val weatherViewModel by viewModels<WeatherViewModel>()
     lateinit var navController : NavHostController
 
+    val notStatic : Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
@@ -44,9 +48,6 @@ class MainActivity : ComponentActivity() {
             val task = fusedLocationProviderClient.lastLocation
             task.addOnSuccessListener {
                 weatherViewModel.getWeatherList(it.latitude, it.longitude, resources)
-
-//                val id = resources.getIdentifier("a01d", "drawable", packageName)
-//                Log.d("MainActivity ", "xxxxxxxxxxxxxxxxxxxxxxxxxxx res id $id")
             }
         }
         setContent {
@@ -54,14 +55,6 @@ class MainActivity : ComponentActivity() {
                 navController = rememberNavController()
                 setupNavGraph(weatherViewModel, navController)
             }
-        }
-    }
-    fun getResourceIDs(){
-        for (item in weatherViewModel.weatherListResponse){
-            val id = resources.getIdentifier(item.weather.icon, "drawable", packageName)
-            item.icon_res_id = id
-            val iconCode = item.weather.icon
-            Log.d("MainActivity ", "xxxxxxxxxxxxxxxxxxxxxxxxxxx res id $id icon code $iconCode")
         }
     }
 }
